@@ -9,12 +9,6 @@
 </head>  
 
 <body>  
- <div class="page-wrapper">
-
-    <!-- Romantic Message -->
-<div class="love">
-    I <span class="color1">LOVE</span> <span class="color2">YOU </span>💖
-</div>
     
 <div class="rose">  
   <div class="petal"></div>  
@@ -37,7 +31,10 @@
 
 <span id="prompt">Touch the rose</span>  
   
-
+<!-- Romantic Message -->
+<div class="love">
+    I <span class="color1">LOVE</span> <span class="color2">YOU </span>💖
+</div>
 
 <audio id="bgMusic" loop preload="auto">
     <source src="./Dooron.mp3" type="audio/mpeg">
@@ -110,22 +107,24 @@ window.addEventListener("load", function() {
 </script>
 
 
-</div>
 
-
-<footer>
+  
+<div  class="footer-section" >
 
     <h1>By Arindam  😌✨</h1>  
     <!-- <div class="single-photo"> -->
         <!-- </div> -->
-        <video class="main-photo" autoplay loop muted playsinline  onloadeddata="this.classList.add('loaded')"
-    >
-        <source src="./mee.mp4" type="video/mp4">
-    </video>
+       <video class="main-photo" autoplay loop muted playsinline  onloadeddata="this.classList.add('loaded')"
+>
+    <source src="./mee.mp4" type="video/mp4">
+</video>
 
-  
+    </div>
+    <!-- <img src="./me.jpg" class="main-photo"> -->
 
 
-</footer>
+
+
+
 </body>  
 </html>

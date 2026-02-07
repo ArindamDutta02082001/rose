@@ -22,15 +22,19 @@ p{
   color: aqua;
 
 }
+
 .rose {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 180px;      /* increased size */
+  height: 180px;     /* increased size */
   top: 50%;
   left: 50%;
-  margin-left: -50px;
-  margin-top: -50px;
+  margin-left: -90px;   /* half of new width */
+  margin-top: -90px;    /* half of new height */
+  transform: scale(1.3);   /* makes it visually bigger */
 }
+
+
 .rose + span {
   position: absolute;
   font-family: "Montserrat", san-serif;
@@ -366,3 +370,180 @@ p{
     width: max-content;
     font-weight: lighter;
     margin-left: -5rem;
+    padding-top: 6rem;
+}
+
+
+/* Mobile Friendly Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Romantic Love Text */
+
+h1 {
+    font-size: 25px;
+    font-family: 'Great Vibes', cursive;
+    color: rgb(153, 8, 8);
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 192, 203, 0.8);
+    animation: glowText 3s infinite;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+@keyframes glowText {
+  0% {
+    text-shadow: 0 0 5px pink;
+  }
+  50% {
+    text-shadow: 0 0 15px hotpink;
+  }
+  100% {
+    text-shadow: 0 0 5px pink;
+  }
+}
+
+
+.love {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 32px;
+  font-weight: bold;
+  text-shadow: 0 0 10px pink;
+  animation: pulse 2s infinite;
+}
+
+
+
+.color1 {
+  color: #ff1493;
+}
+
+.color2 {
+  color: #ff69b4;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+
+/* Small floating roses */
+/* .small-rose {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle, #ff69b4, #ff1493);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: floatUp 6s linear forwards;
+  pointer-events: none;
+} */
+
+
+
+
+.small-rose {
+  position: absolute;
+  font-size: 24px;
+  color: #ff1493;
+  animation: floatUp 6s linear forwards;
+  pointer-events: none;
+}
+
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-600px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Smooth transform for rose */
+.rose {
+  transition: transform 1s ease-in-out;
+}
+
+/* When closed – smaller + rotated */
+.rose.closed {
+  transform: scale(0.6) rotate(120deg);
+}
+
+/* When open – big and normal */
+.rose.open {
+  transform: scale(1.3) rotate(0deg);
+}
+
+/* Text visibility controlled by open/close state */
+
+.rose .text {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.rose.open .text {
+  opacity: 1;
+}
+
+.rose.closed .text {
+  opacity: 0;
+}
+
+
+/* .single-photo {
+  position: relative;
+  margin-top: 40px;
+ 
+  z-index: 10;
+} */
+
+.main-photo {
+    position: relative;      /* ← THIS IS THE KEY CHANGE */
+    width: 120px;
+    max-width: 80%;
+    border-radius: 6px;
+
+    display: block;
+    margin: 10px auto;
+
+    opacity: 0;              /* hidden till loaded */
+    border: none;
+    box-shadow: none;
+
+    transition: opacity 0.6s ease;
+}
+
+
+
+.main-photo.loaded {
+    opacity: 1;
+    border: 2px solid pink;
+    /* box-shadow: 0 0 15px rgba(255, 20, 147, 0.8); */
+}
+
+
+/* .main-photo:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+} */
+
+
+.footer-section {
+  margin-top: 40px;
+  text-align: center;
+}
