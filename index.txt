@@ -9,7 +9,8 @@
 </head>  
 
 <body>  
-    
+<div class="container">
+
 <div class="rose">  
   <div class="petal"></div>  
   <div class="petal"></div>  
@@ -23,19 +24,16 @@
   <div class="petal"></div>  
 
   <div class="text">  
-      <span>Happy Rose Day Ms Trina Koley ✨</span>  
+      <span>Happy Rose Day</span>
+      <span class="name">Ms Trina Koley ✨</span>
   </div>  
 </div>  
 
-
-
 <span id="prompt">Touch the rose</span>  
-  
-<!-- Romantic Message -->
-<div class="love">
-    I <span class="color1">LOVE</span> <span class="color2">YOU</span> 💖
-</div>
 
+
+
+<!-- Hidden Music -->
 <audio id="bgMusic" loop preload="auto">
     <source src="./Dooron.mp3" type="audio/mpeg">
 </audio>
@@ -47,7 +45,6 @@
 
       if (playPromise !== undefined) {
           playPromise.catch(() => {
-              // If blocked, wait for user interaction
               document.addEventListener("click", () => {
                   audio.play();
               }, { once: true });
@@ -56,9 +53,8 @@
   });
 </script>
 
+<h1 class="footer">By Arindam 😌✨</h1>  
 
-  
-<h1>By Arindam  😌✨</h1>  
-
+</div>
 </body>  
 </html>
