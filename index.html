@@ -40,20 +40,74 @@
     <source src="./Dooron.mp3" type="audio/mpeg">
 </audio>
 
-<script>
-  window.addEventListener("load", function() {
-      var audio = document.getElementById("bgMusic");
-      var playPromise = audio.play();
 
-      if (playPromise !== undefined) {
-          playPromise.catch(() => {
-              // If blocked, wait for user interaction
-              document.addEventListener("click", () => {
-                  audio.play();
-              }, { once: true });
-          });
-      }
-  });
+
+<script>
+window.addEventListener("load", function() {
+
+    var audio = document.getElementById("bgMusic");
+    var rose = document.querySelector(".rose");
+
+        // SET INITIAL STATE
+    rose.classList.add("closed");
+
+    // Try to autoplay music
+    var playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            // If autoplay blocked, wait for first user interaction
+            document.addEventListener("click", () => {
+                audio.play();
+            }, { once: true });
+        });
+    }
+
+    // When main rose is clicked – create floating hearts
+    rose.addEventListener("click", function(event) {
+        for (let i = 0; i < 15; i++) {
+            createHeart(event);
+        }
+
+
+         if (rose.classList.contains("closed")) {
+            rose.classList.remove("closed");
+            rose.classList.add("open");
+
+        } else {
+            rose.classList.remove("open");
+            rose.classList.add("closed");
+        }
+
+    });
+
+    // Function to create floating heart symbols
+    function createHeart(event) {
+        var heart = document.createElement("div");
+        heart.classList.add("small-rose");
+
+        // make it a love heart
+        heart.innerHTML = "💖";
+
+        document.body.appendChild(heart);
+
+        var x = event.clientX + (Math.random() * 140 - 70);
+        var y = event.clientY + (Math.random() * 140 - 70);
+
+        heart.style.left = x + "px";
+        heart.style.top = y + "px";
+
+        // remove after animation ends
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+});
+</script>
+
+
+  
 </script>
 
 
