@@ -34,14 +34,12 @@
 
 <!-- WORKING HIDDEN AUTOPLAY MUSIC -->
 <audio id="bgMusic" loop preload="auto">
-    <source src="dooron.mp3" type="audio/mp3">
+    <source src="./Dooron.mp3" type="audio/mpeg">
 </audio>
 
 <script>
   window.addEventListener("load", function() {
       var audio = document.getElementById("bgMusic");
-
-      // Try autoplay
       var playPromise = audio.play();
 
       if (playPromise !== undefined) {
